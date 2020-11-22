@@ -38,12 +38,18 @@
 #include "H1Calculator/H1CalcWeight.h"
 #include "H1Calculator/H1CalcVertex.h"
 #include "H1Calculator/H1CalcGenericInterface.h"
+#include "H1Mods/H1PartCandArrayPtr.h"
 
 #include "H1Cuts/H1CutEventSelector.h"
 
 #include <limits.h>
 using namespace std;
 using namespace H1CalcGenericInterface;
+// fjcontrib                                                                                                                                                                                                
+#include "fastjet/PseudoJet.hh"
+#include "fastjet/contrib/Centauro.hh"
+
+using namespace fastjet;
 
 int main(int argc, char* argv[])
 {
@@ -86,7 +92,7 @@ int main(int argc, char* argv[])
     H1ShortPtr runtype("RunType"); // 
     H1IntPtr runnumber("RunNumber");//
 
-    H1BoostedJets* boostedjets = H1BoostedJets::Instance();
+    H1BoostedJets* boostedjets = H1BoostedJets::Instance(); //this loads fastjet library
  
     H1ErrorHandler::Instance()->SetMaxCount(5); // mop up those error messages
 
@@ -211,6 +217,34 @@ int main(int argc, char* argv[])
     boostedjets->SetEtaLabCut(-1.0, 2.5);
     
 
+
+    ///NEW code
+    //H1BoostedJets* boostedjets = H1BoostedJets::Instance(); // this loads fastjet library!                                                                                                              
+   
+    //boostedjets->SetReferenceFrame(H1BoostedJets::eBreit); // this provides the boost vector                                                                                                            
+    fastjet::RecombinationScheme recomb_scheme = fastjet::E_scheme;//WTA_modp_scheme; //E_scheme ;   //WTA_modp_sche
+    fastjet::JetDefinition jetDef(fastjet::genkt_algorithm, 1.0,1, recomb_scheme);
+    std::vector <fastjet::PseudoJet> fjInputs;  
+
+
+
+    // --- define fastjet contrib module Centauro                                                                                                                                                           
+    //    fastjet::contrib::CentauroPlugin * centauro_plugin = new fastjet::contrib::CentauroPlugin(1.0);
+    // fastjet::JetDefinition jet_def(centauro_plugin);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // open file to store histograms:
     TFile* file = new TFile(opts.GetOutput(), "RECREATE"); 
   
@@ -328,8 +362,8 @@ int main(int argc, char* argv[])
     T->Branch("genjet_z", &genjet_z);
 
     // open the canvas before the event loop
-    TCanvas *canvas = new TCanvas("boosted_jets", "Plots", 10, 10, 600, 800);
-    canvas->Divide(1, 3);
+    //TCanvas *canvas = new TCanvas("boosted_jets", "Plots", 10, 10, 600, 800);
+    //canvas->Divide(1, 3);
 
     // start event selection
     //cout << "Starting HAT selection: Q2 > 150" << endl;
@@ -411,6 +445,7 @@ int main(int argc, char* argv[])
       Weight=0;
       WeightGen=0;
 
+      fjInputs.clear();
       jet_pt.clear();
       jet_qt.clear();
       jet_phi.clear();
@@ -473,6 +508,10 @@ int main(int argc, char* argv[])
       TLorentzVector genScatteredElec(genElecPx, genElecPy, genElecPz, *genEnElec);  
       TLorentzVector ScatteredElec(ElecPx, ElecPy, ElecPz, *ElecE);
       TLorentzVector proton(0.0,0.0,*Ep, *Ep);
+      // fastjet::PseudoJet proton(0.0, 0.0, *Ep, *Ep);
+
+
+
       TLorentzVector incoming_electron(0.0,0.0,-*Ee,*Ee);
       TLorentzVector virtual_photon = incoming_electron - ScatteredElec;
       TLorentzVector genvirtual_photon = incoming_electron - genScatteredElec;
@@ -480,6 +519,8 @@ int main(int argc, char* argv[])
       //event variables
       // Float_t Empz = gH1Calc->Fs()->GetEmpz();                           
       //Float_t PtMiss = gH1Calc->Fs()->GetPtMiss();         
+      const double etamin = -1.5;
+      const double etamax = 2.75;
 
       Empz = gH1Calc->Fs()->GetEmpz();  
       ptmiss = gH1Calc->Fs()->GetPtMiss();
@@ -544,63 +585,91 @@ int main(int argc, char* argv[])
       njets = (Float_t)boostedjets->GetNumJetsAfterCuts(reco);
 
       polarization = *Pol;
+
+
+      // 3) PartCands on detector-level in lab and breit frame                                                                                                                                              
+      static H1PartCandArrayPtr allpartcands;
+      H1Boost* breitboost = H1BoostedJets::Instance()->GetRecBoost();
+      for ( auto* p : *allpartcands ) { // (int ipart=0; ipart<allpartcands.GetEntries(); ++ipart){                                                                                                         
+	H1PartCand* part = (H1PartCand*)p;
+	if (part->IsScatElec()) continue;  // exclude the scattered electron                                                                                                                               
+	if ( part->GetEta() < etamin || part->GetEta() > etamax ) continue; // cut on eta, both for lab and breit frame                                                                                    
+	// lab frame                                                                                                                                                                                       
+	fjInputs.push_back( PseudoJet(part->GetPx(),part->GetPy(), part->GetPz(), part->GetE()) );
+      }
+
+      // --- centauro with lab-frame particles (reco level)                                                                                                                                                 
+      ClusterSequence clust_seq_lab(fjInputs, jetDef);
+      vector<PseudoJet> jets_lab = clust_seq_lab.inclusive_jets(7.0);
+      vector<PseudoJet> sortedLabJets   = sorted_by_pt(jets_lab);
+
+
+
+      for (unsigned ijet= 0; ijet < sortedLabJets.size();ijet++) {
+	fastjet::PseudoJet jet = sortedLabJets[ijet];
+        if(jet.eta()>2.5 or jet.eta()<-1.0) continue;
+	//	std::cout << "This is the result I get running standalone fastjet: jet pt " << jet.perp() << " GEV" << " " << jet.eta() << std::endl;
+	//      }
+
+        TLorentzVector jet_vec(jet.px(), jet.py(), jet.pz(), jet.e()); 
+
       //  std::cout << "Polarization of the event " << polarization << std::endl;     
       // loop over the number of jets:
-      for (Int_t ijet = 0; ijet<NumJets; ++ijet){
+      //for (Int_t ijet = 0; ijet<NumJets; ++ijet){
 	//H1PartJet* jet = (H1PartJet*) boostedjetarray->At(ijet); 
-	H1PartJet* jet = (H1PartJet*) jetarray->At(ijet);
+	//H1PartJet* jet = (H1PartJet*) jetarray->At(ijet);
 
-        double jetphi = jet->GetPhi();
+        double jetphi = jet.phi();
         double ephi = ScatteredElec.Phi();
 	Float_t dphi = TMath::Abs(TVector2::Phi_mpi_pi(jetphi-ephi));
 
-	TVector2 jet2(jet->GetPx(),jet->GetPy());
+	TVector2 jet2(jet.px(),jet.py());
 	TVector2 electron2(ElecPx,ElecPy);
 	TVector2 qT = jet2 + electron2;
 
         // z variable (Lorentz invariant). 
-        double z = proton.Dot(jet->GetFourVector())/proton.Dot(virtual_photon);
+        double z = proton.Dot(jet_vec)/proton.Dot(virtual_photon);
   
 	//std::cout << ijet << std::endl;
-	if (cutflags[ijet]){
+	//if (cutflags[ijet]){
 	  // std::cout << ijet << std::endl;
 
 	  //std::cout << " jet pt " << jet->GetPt() <<  " " << jet->GetEta() << std::endl;
-	  pthisto->Fill(jet->GetPt());
-          pthisto_lab->Fill(jet->GetPt());
-          dphi_lab->Fill(dphi);
-          h_qt->Fill(qT.Mod());
-          h_z->Fill(z);
-	  etahisto->Fill(jet->GetEta());
+	pthisto->Fill(jet.perp());
+        pthisto_lab->Fill(jet.perp());
+        dphi_lab->Fill(dphi);
+        h_qt->Fill(qT.Mod());
+        h_z->Fill(z);
+	etahisto->Fill(jet.eta());
 	   
 
-          float deltaR = 999;
-          int matched_index = -999;                                                       
-          for(Int_t itrue = 0; itrue < truth_NumJets; ++itrue)
-	    {																				
-  	     H1PartJet* genjet = (H1PartJet*) truth_jetarray->At(itrue);                                                                                                                                     
-             float distance = genjet->GetFourVector().DeltaR(jet->GetFourVector()) ;                                                                                                                       
-             if( distance < deltaR)
-	       {
-		 deltaR = distance;
+        float deltaR = 999;
+        int matched_index = -999;                                                       
+        for(Int_t itrue = 0; itrue < truth_NumJets; ++itrue)
+	  {																				
+  	   H1PartJet* genjet = (H1PartJet*) truth_jetarray->At(itrue);                                                                                                                                     
+           float distance = genjet->GetFourVector().DeltaR(jet_vec);                                                                                                                       
+           if( distance < deltaR)
+	     {
+	         deltaR = distance;
 		 matched_index = itrue;
 	       }
 	    }	
-          if(*runtype==0 or (*runtype!=0 and matched_index>-1)){
+        if(*runtype==0 or (*runtype!=0 and matched_index>-1)){
 
-          jet_pt.push_back(jet->GetPt());
-          jet_qt.push_back(qT.Mod());
-	  jet_eta.push_back(jet->GetEta());
-	  jet_p.push_back(jet->GetP());
-	  jet_phi.push_back(jet->GetPhi());
-	  jet_rap.push_back(jet->GetRapidity());
-	  jet_theta.push_back(jet->GetTheta());
-	  jet_dphi.push_back(TMath::Abs(TVector2::Phi_mpi_pi(jet->GetPhi()-ephi)));
-	  jet_z.push_back(z);
-	  nconstituents.push_back(jet->GetNumOfParticles());
+	jet_pt.push_back(jet.perp());
+        jet_qt.push_back(qT.Mod());
+	jet_eta.push_back(jet.eta());
+	jet_p.push_back(jet_vec.P());
+	jet_phi.push_back(jet.phi());
+	jet_rap.push_back(jet.rap());
+	jet_theta.push_back(jet.theta());
+	jet_dphi.push_back(TMath::Abs(TVector2::Phi_mpi_pi(jet.phi()-ephi)));
+	jet_z.push_back(z);
+	nconstituents.push_back(jet.constituents().size());
 	  
-          if(*runtype>0 and matched_index>-1){
-          H1PartJet* true_jet = (H1PartJet*) truth_jetarray->At(matched_index);
+        if(*runtype>0 and matched_index>-1){
+        H1PartJet* true_jet = (H1PartJet*) truth_jetarray->At(matched_index);
 
 	  TVector2 genjet2(true_jet->GetPx(),true_jet->GetPy());
 	  TVector2 genelectron2(genElecPx,genElecPy);
@@ -621,28 +690,28 @@ int main(int argc, char* argv[])
           genjet_z.push_back(genz);
 	  }
 	  //fill truth-level variables
-	  }
+	}
 
-	}	  //end if jet is selected loop
+		  //end if jet is selected loop
 
 	//loop over constituents
-	for (int n = 0; n < jet->GetNumOfParticles(); n++){
-	  const H1Part* track = jet->GetParticle(n);
-          if(abs(track->GetCharge())!=1) continue;
-	  double zh = jet->GetFourVector().Vect().Dot( track->GetFourVector().Vect() )/(jet->GetFourVector().P()*jet->GetFourVector().P());
-          h_zh->Fill(zh);
-          double r = TMath::Sqrt( pow(jet->GetFourVector().Phi() - track->GetFourVector().Phi(),2.0) + pow(jet->GetFourVector().Eta() - track->GetFourVector().Eta(),2.0));
-	  TVector3 zaxis(0,0,1);
-          TVector3 N = zaxis.Cross(jet->GetFourVector().Vect());
-	  TVector3 S = N.Cross(jet->GetFourVector().Vect());
-	  N = N.Unit();
-	  S = S.Unit();
-	  TVector3 jt  = track->GetFourVector().Vect().Dot(N)*N + track->GetFourVector().Vect().Dot(S)*S;
-	  if( z>0.1 and z<0.5){
-	    h_jt->Fill(jt.Mag());
-          }
+	//	for (int n = 0; n < jet->GetNumOfParticles(); n++){
+	//	  const H1Part* track = jet->GetParticle(n);
+        //  if(abs(track->GetCharge())!=1) continue;
+	//  double zh = jet->GetFourVector().Vect().Dot( track->GetFourVector().Vect() )/(jet->GetFourVector().P()*jet->GetFourVector().P());
+        //  h_zh->Fill(zh);
+        //  double r = TMath::Sqrt( pow(jet->GetFourVector().Phi() - track->GetFourVector().Phi(),2.0) + pow(jet->GetFourVector().Eta() - track->GetFourVector().Eta(),2.0));
+	//  TVector3 zaxis(0,0,1);
+        //  TVector3 N = zaxis.Cross(jet->GetFourVector().Vect());
+	//  TVector3 S = N.Cross(jet->GetFourVector().Vect());
+	//  N = N.Unit();
+	//  S = S.Unit();
+	//  TVector3 jt  = track->GetFourVector().Vect().Dot(N)*N + track->GetFourVector().Vect().Dot(S)*S;
+	//  if( z>0.1 and z<0.5){
+	//    h_jt->Fill(jt.Mag());
+	// }
 
-	}
+      
 
       }//end jet loop
 	
@@ -652,36 +721,36 @@ int main(int argc, char* argv[])
       
       if (events % 1000 == 0) {
 	cout <<"event " << events <<" **********\n";
-        canvas->cd(1);
-        pthisto->Draw();
+        //canvas->cd(1);
+        //pthisto->Draw();
         //gPad->SetLogy();
-        gPad->Update();
-        canvas->cd(2);
-        etahisto->Draw();
+	// gPad->Update();
+        ///canvas->cd(2);
+	// etahisto->Draw();
         //gPad->SetLogy();
-        gPad->Update();
-        canvas->cd(3);
+        //gPad->Update();
+	// canvas->cd(3);
        
-        gPad->SetLogy();
-        gPad->Update();
+        //gPad->SetLogy();
+        //gPad->Update();
       }
       T->Fill();
       ++events;
       if (opts.IsMaxEvent(events)) break;
     }//end loop
 
-    canvas->cd(1);
-    pthisto->Draw();
+    //canvas->cd(1);
+    // pthisto->Draw();
     //gPad->SetLogy();
-    gPad->Update();
-    canvas->cd(2);
-    etahisto->Draw();
+    //gPad->Update();
+    //canvas->cd(2);
+    //etahisto->Draw();
     //gPad->SetLogy();
-    gPad->Update();
-    canvas->cd(3);
+    //gPad->Update();
+    //canvas->cd(3);
     
-    gPad->SetLogy();
-    gPad->Update();
+    //gPad->SetLogy();
+    //gPad->Update();
     
     
     boostedjets->Print("Example Program");
