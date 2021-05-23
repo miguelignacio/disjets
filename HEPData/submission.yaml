@@ -1,0 +1,69 @@
+---
+additional_resources: # additional references (e.g. experiment TWiki page for analysis)
+  - {location: "https://www-h1.desy.de/h1/www/publications/htmlsplit/H1prelim-21-031.long.html", description: "preliminary results"}
+
+comment: | # preserve newlines
+  DESY-HERA.  Normalized, differential cross-section measurements of the leading jet and electron in the lab frame in collisions between 27.6 GeV positrons and 920 GeV protons collected by the H1 detector in 2006 and 2007, totaling 136/pb. 
+
+  The measurement fiducial region is defined as:
+  - Q^2 > 150 GeV^2, 0.2 < y < 0.7, ptJet > 10 GeV.
+  - Jets are clustered with the kT algorithm using R = 1 in the lab frame.
+
+---
+# Start a new YAML document to indicate a new data table.
+# This is Table 1.
+name: "Table 1"
+location: Data from Figure 2A
+description: Normalized fiducial cross section in values of the leading jet pT.
+keywords: # used for searching, possibly multiple values for each keyword
+  - {name: reactions, values: [e P --> e J]}
+  - {name: observables, values: [SIG]}
+  - {name: cmenergies, values: [318]} # centre-of-mass energy in GeV
+  - {name: phrases, values: [Single Differential Cross Section, Electron-Proton Scattering]}
+data_file: data1.yaml
+additional_resources:
+- {description: Image file, location: figFigure2A.png}
+- {description: Thumbnail image file, location: thumb_figFigure2A.png}
+---
+# This is Table 2.
+name: "Table 2"
+location: Data from Figure 2B
+description: Normalized fiducial cross section in values of the leading jet pseudorapidity.
+keywords: # used for searching, possibly multiple values for each keyword
+  - {name: reactions, values: [e P --> e J]}
+  - {name: observables, values: [SIG]}
+  - {name: cmenergies, values: [318]} # centre-of-mass energy in GeV
+  - {name: phrases, values: [Single Differential Cross Section, Electron-Proton Scattering]}
+data_file: data2.yaml
+additional_resources:
+- {description: Image file, location: figFigure2B.png}
+- {description: Thumbnail image file, location: thumb_figFigure2B.png}
+---
+# This is Table 3.
+name: "Table 3"
+location: Data from Figure 2C
+description: Normalized fiducial cross section in values of the qT/Q.
+keywords: # used for searching, possibly multiple values for each keyword
+  - {name: reactions, values: [e P --> e J]}
+  - {name: observables, values: [SIG]}
+  - {name: cmenergies, values: [318]} # centre-of-mass energy in GeV
+  - {name: phrases, values: [Single Differential Cross Section, Electron-Proton Scattering]}
+data_file: data3.yaml
+additional_resources:
+- {description: Image file, location: figFigure2C.png}
+- {description: Thumbnail image file, location: thumb_figFigure2C.png}
+---
+# This is Table 4.
+name: "Table 4"
+location: Data from Figure 2D
+description: Normalized fiducial cross section in values of the DeltaPhi between the leading jet and the electron.
+keywords: # used for searching, possibly multiple values for each keyword
+  - {name: reactions, values: [e P --> e J]}
+  - {name: observables, values: [SIG]}
+  - {name: cmenergies, values: [318]} # centre-of-mass energy in GeV
+  - {name: phrases, values: [Single Differential Cross Section, Electron-Proton Scattering]}
+data_file: data4.yaml
+additional_resources:
+- {description: Image file, location: figFigure2D.png}
+- {description: Thumbnail image file, location: thumb_figFigure2D.png}
+# End of YAML file.

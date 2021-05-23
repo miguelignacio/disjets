@@ -1,0 +1,44 @@
+independent_variables:
+- header: {name: DeltaPHI, units: radians}
+  values:
+  - {low: 0.000, high: 0.051}
+  - {low: 0.051, high: 0.102}
+  - {low: 0.102, high: 0.187}
+  - {low: 0.187, high: 0.326}
+  - {low: 0.326, high: 0.554}
+  - {low: 0.554, high: 0.928}
+  - {low: 0.928, high: 1.541}
+dependent_variables:
+- header: {name: 1/SIG(fiducial) * D(SIG(fiducial))/DDeltaPHI, units: radians**-1}
+  qualifiers:
+  - {name: RE, value: e P --> e J}
+  - {name: SQRT(S), units: GEV, value: 318}
+  values:
+  - value: 5.58
+    errors:
+    - {symerror: 0.08, label: stat}
+    - {symerror: 0.46, label: syst}
+  - value: 3.43
+    errors:
+    - {symerror: 0.03, label: stat}
+    - {symerror: 0.31, label: syst}
+  - value: 1.89
+    errors:
+    - {symerror: 0.03, label: stat}
+    - {symerror: 0.10, label: syst}
+  - value: 0.88
+    errors:
+    - {symerror: 0.01, label: stat}
+    - {symerror: 0.06, label: syst}
+  - value: 0.397
+    errors:
+    - {symerror: 0.007, label: stat}
+    - {symerror: 0.027, label: syst}
+  - value: 0.149
+    errors:
+    - {symerror: 0.003, label: stat}
+    - {symerror: 0.007, label: syst}
+  - value: 0.058
+    errors:
+    - {symerror: 0.002, label: stat}
+    - {symerror: 0.005, label: syst}
