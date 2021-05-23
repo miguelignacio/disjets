@@ -1,0 +1,34 @@
+independent_variables:
+- header: {name: jet ETA, units: none}
+  values:
+  - {low: -1.000, high: -0.300}
+  - {low: -0.300, high: 0.400}
+  - {low: 0.400, high: 1.100}
+  - {low: 1.100, high: 1.800}
+  - {low: 1.800, high: 2.500}
+dependent_variables:
+- header: {name: 1/SIG(fiducial) * D(SIG(fiducial))/DETA, units: none}
+  qualifiers:
+  - {name: RE, value: e P --> e J}
+  - {name: SQRT(S), units: GEV, value: 318}
+  values:
+  - value: 0.281
+    errors:
+    - {symerror: 0.005, label: stat}
+    - {symerror: 0.016, label: syst}
+  - value: 0.613
+    errors:
+    - {symerror: 0.003, label: stat}
+    - {symerror: 0.014, label: syst}
+  - value: 0.362
+    errors:
+    - {symerror: 0.004, label: stat}
+    - {symerror: 0.008, label: syst}
+  - value: 0.121
+    errors:
+    - {symerror: 0.002, label: stat}
+    - {symerror: 0.006, label: syst}
+  - value: 0.053
+    errors:
+    - {symerror: 0.002, label: stat}
+    - {symerror: 0.008, label: syst}

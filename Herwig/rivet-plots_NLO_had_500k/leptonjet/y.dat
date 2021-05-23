@@ -1,0 +1,25 @@
+# BEGIN PLOT
+LegendOnly=//Users/bpnachman/Desktop/Herwig/rivet-plots_NLO_had_500k.yoda/leptonjet/y
+DrawOnly=//Users/bpnachman/Desktop/Herwig/rivet-plots_NLO_had_500k.yoda/leptonjet/y
+Legend=1
+LogY=1
+# END PLOT
+
+# BEGIN HISTO1D //Users/bpnachman/Desktop/Herwig/rivet-plots_NLO_had_500k.yoda/leptonjet/y
+LineColor=red
+LineStyle=solid
+Path=//Users/bpnachman/Desktop/Herwig/rivet-plots_NLO_had_500k.yoda/leptonjet/y
+Title=rivet-plots_NLO_had_500k
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+1.000000e-01	2.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+2.000000e-01	3.000000e-01	3.718229e+05	5.004076e+03	5.004076e+03
+3.000000e-01	4.000000e-01	2.611977e+05	4.647524e+03	4.647524e+03
+4.000000e-01	5.000000e-01	2.036503e+05	4.004443e+03	4.004443e+03
+5.000000e-01	6.000000e-01	1.699816e+05	3.859503e+03	3.859503e+03
+6.000000e-01	7.000000e-01	1.376625e+05	3.384262e+03	3.384262e+03
+7.000000e-01	8.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+8.000000e-01	9.000000e-01	0.000000e+00	0.000000e+00	0.000000e+00
+9.000000e-01	1.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+# END HISTO1D
+

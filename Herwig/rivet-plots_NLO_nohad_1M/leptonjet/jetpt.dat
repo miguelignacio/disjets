@@ -1,0 +1,21 @@
+# BEGIN PLOT
+LegendOnly=//Users/bpnachman/Desktop/Herwig/DIS-Matchbox_nohad.yoda/leptonjet/jetpt
+DrawOnly=//Users/bpnachman/Desktop/Herwig/DIS-Matchbox_nohad.yoda/leptonjet/jetpt
+Legend=1
+LogY=1
+# END PLOT
+
+# BEGIN HISTO1D //Users/bpnachman/Desktop/Herwig/DIS-Matchbox_nohad.yoda/leptonjet/jetpt
+LineColor=red
+LineStyle=solid
+Path=//Users/bpnachman/Desktop/Herwig/DIS-Matchbox_nohad.yoda/leptonjet/jetpt
+Title=DIS-Matchbox_nohad
+# xlow	 xhigh	 val	 errminus	 errplus
+1.000000e+01	1.467799e+01	1.257164e+04	6.245835e+01	6.245835e+01
+1.467799e+01	2.154435e+01	4.848503e+03	3.190966e+01	3.190966e+01
+2.154435e+01	3.162278e+01	1.145083e+03	1.269557e+01	1.269557e+01
+3.162278e+01	4.641589e+01	1.964428e+02	4.278544e+00	4.278544e+00
+4.641589e+01	6.812921e+01	1.738336e+01	1.073188e+00	1.073188e+00
+6.812921e+01	1.000000e+02	2.510135e-01	9.922182e-02	9.922182e-02
+# END HISTO1D
+
