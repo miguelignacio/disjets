@@ -1,0 +1,25 @@
+# BEGIN PLOT
+LegendOnly=//Users/bpnachman/Desktop/Herwig2/DIS_nohad.yoda/leptonjet/xBj
+DrawOnly=//Users/bpnachman/Desktop/Herwig2/DIS_nohad.yoda/leptonjet/xBj
+Legend=1
+LogY=1
+# END PLOT
+
+# BEGIN HISTO1D //Users/bpnachman/Desktop/Herwig2/DIS_nohad.yoda/leptonjet/xBj
+LineColor=red
+LineStyle=solid
+Path=//Users/bpnachman/Desktop/Herwig2/DIS_nohad.yoda/leptonjet/xBj
+Title=DIS_nohad
+# xlow	 xhigh	 val	 errminus	 errplus
+1.000000e-05	3.162278e-05	0.000000e+00	0.000000e+00	0.000000e+00
+3.162278e-05	1.000000e-04	0.000000e+00	0.000000e+00	0.000000e+00
+1.000000e-04	3.162278e-04	0.000000e+00	0.000000e+00	0.000000e+00
+3.162278e-04	1.000000e-03	0.000000e+00	0.000000e+00	0.000000e+00
+1.000000e-03	3.162278e-03	1.676473e+06	2.784470e+04	2.784470e+04
+3.162278e-03	1.000000e-02	4.922400e+06	2.683074e+04	2.683074e+04
+1.000000e-02	3.162278e-02	6.642994e+05	5.542761e+03	5.542761e+03
+3.162278e-02	1.000000e-01	4.264578e+04	7.897367e+02	7.897367e+02
+1.000000e-01	3.162278e-01	2.178258e+03	1.003688e+02	1.003688e+02
+3.162278e-01	1.000000e+00	4.387426e+01	8.010307e+00	8.010307e+00
+# END HISTO1D
+
