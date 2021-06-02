@@ -116,6 +116,7 @@ def multifold(num_observables, iterations, theta0_G, theta0_S,
         model.compile(loss=weighted_binary_crossentropy,
                   optimizer='Adam',
                   metrics=['accuracy'])
+
         hist_s2 = model.fit(X_train_2[X_train_2[:,0]!=-10],
               Y_train_2[X_train_2[:,0]!=-10],
               epochs=1000,
@@ -123,7 +124,7 @@ def multifold(num_observables, iterations, theta0_G, theta0_S,
               validation_data=(X_test_2[X_test_2[:,0]!=-10], Y_test_2[X_test_2[:,0]!=-10]),
               callbacks=[earlystopping],
               verbose=verbose)
-        
+
         history['step2'].append(hist_s2)
 
         #weights_push = reweight(theta0_G)
