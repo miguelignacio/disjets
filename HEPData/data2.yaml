@@ -12,23 +12,23 @@ dependent_variables:
   - {name: RE, value: e P --> e J}
   - {name: SQRT(S), units: GEV, value: 318}
   values:
-  - value: 0.3102
+  - value: 0.281
     errors:
-    - {symerror: 0.0005, label: stat}
-    - {symerror: 0.0111, label: syst}
-  - value: 0.6487
+    - {symerror: 0.005, label: stat}
+    - {symerror: 0.016, label: syst}
+  - value: 0.613
     errors:
-    - {symerror: 0.0010, label: stat}
-    - {symerror: 0.0174, label: syst}
-  - value: 0.3394
+    - {symerror: 0.003, label: stat}
+    - {symerror: 0.014, label: syst}
+  - value: 0.362
     errors:
-    - {symerror: 0.0004, label: stat}
-    - {symerror: 0.0106, label: syst}
-  - value: 0.09624
+    - {symerror: 0.004, label: stat}
+    - {symerror: 0.008, label: syst}
+  - value: 0.121
     errors:
-    - {symerror: 0.00009, label: stat}
-    - {symerror: 0.00551, label: syst}
-  - value: 0.03682
+    - {symerror: 0.002, label: stat}
+    - {symerror: 0.006, label: syst}
+  - value: 0.053
     errors:
-    - {symerror: 0.00002, label: stat}
-    - {symerror: 0.00268, label: syst}
+    - {symerror: 0.002, label: stat}
+    - {symerror: 0.008, label: syst}

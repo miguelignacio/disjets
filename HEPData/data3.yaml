@@ -14,31 +14,31 @@ dependent_variables:
   - {name: RE, value: e P --> e J}
   - {name: SQRT(S), units: GEV, value: 318}
   values:
-  - value: 3.5
-    errors:
-    - {symerror: 0.1, label: stat}
-    - {symerror: 0.5, label: syst}
-  - value: 3.28
+  - value: 3.64
     errors:
     - {symerror: 0.07, label: stat}
-    - {symerror: 0.21, label: syst}
-  - value: 1.64
+    - {symerror: 0.65, label: syst}
+  - value: 3.26
     errors:
-    - {symerror: 0.02, label: stat}
-    - {symerror: 0.11, label: syst}
-  - value: 0.669
+    - {symerror: 0.04, label: stat}
+    - {symerror: 0.28, label: syst}
+  - value: 1.59
     errors:
-    - {symerror: 0.003, label: stat}
-    - {symerror: 0.034, label: syst}
-  - value: 0.2230
+    - {symerror: 0.03, label: stat}
+    - {symerror: 0.14, label: syst}
+  - value: 0.658
+    errors:
+    - {symerror: 0.010, label: stat}
+    - {symerror: 0.042, label: syst}
+  - value: 0.226
+    errors:
+    - {symerror: 0.004, label: stat}
+    - {symerror: 0.013, label: syst}
+  - value: 0.070
+    errors:
+    - {symerror: 0.002, label: stat}
+    - {symerror: 0.007, label: syst}
+  - value: 0.0069
     errors:
     - {symerror: 0.0004, label: stat}
-    - {symerror: 0.0072, label: syst}
-  - value: 0.07204
-    errors:
-    - {symerror: 0.00006, label: stat}
-    - {symerror: 0.00533, label: syst}
-  - value: 0.007369
-    errors:
-    - {symerror: 0.000001, label: stat}
-    - {symerror: 0.000844, label: syst}
+    - {symerror: 0.0019, label: syst}
