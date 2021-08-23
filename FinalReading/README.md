@@ -6,7 +6,9 @@ mkdir models log_files storage_files storage_plots
 
 You can then run it like
 
+'''
 python unfold_fullstats.py <mc> <syst> <GPU>
+'''
     
 where <mc> is Rapgap or Django, <syst> is nominal, syst_0, syst_1, syst_5, sys_7, or sys_11, and <GPU> is the GPU you want to use (e.g. 0, 1, 2, 3 if the machine you are using has four GPUs).  All of the NNs are saved in models and timing information is saved in the log files.  A number of useful diagnostic plots are saved in storage_plots and the final results (as numpy array histogram bin contents) are stored in storage_files.
     
