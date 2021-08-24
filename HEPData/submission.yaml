@@ -66,4 +66,17 @@ data_file: data4.yaml
 additional_resources:
 - {description: Image file, location: figFigure2D.png}
 - {description: Thumbnail image file, location: thumb_figFigure2D.png}
+# This is Table 4.
+name: "Table 5"
+location: Correlation Matrix
+description: Statistical correlation between bins.  This is calculated with bootstrapping and the neural networks are retrained each time and thus there is a small contribution also from the stochastic nature of the training procedure.  The bins are numbered 0 through 24 with the first 6 bins corresponding to the jet pT, the next 5 corresponding to the jet eta, the next 7 corresponding to delta phi and the last 7 corresonding to qT/Q.
+keywords: # used for searching, possibly multiple values for each keyword
+  - {name: reactions, values: [e P --> e J]}
+  - {name: observables, values: [Correlation]}
+  - {name: cmenergies, values: [318]} # centre-of-mass energy in GeV
+  - {name: phrases, values: [Single Differential Cross Section, Electron-Proton Scattering]}
+data_file: data5.yaml
+additional_resources:
+- {description: Image file, location: figFigureCorr.png}
+- {description: Thumbnail image file, location: thumb_figFigureCorr.png}
 # End of YAML file.
