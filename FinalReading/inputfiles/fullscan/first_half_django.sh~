@@ -1,0 +1,4 @@
+#!/bin/bash
+
+python unfold_fullstats.py Django sys_7 4
+python unfold_fullstats.py Django sys_1 4

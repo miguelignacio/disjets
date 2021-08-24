@@ -1,0 +1,60 @@
+on iteration=0 processing data for step 1, time elapsed=0.6055173873901367
+on iteration=0 done processing data for step 1, time elapsed=7.6580023765563965
+data events = 129140
+MC events = 8200370
+on step 1, time elapsed=7.8866705894470215
+done with step 1, time elapsed=3409.1192803382874
+time for step 2, time elapsed=3458.2182092666626
+on iteration=0 done processing data for step 2, time elapsed=3527.245636701584
+MC events = 129140
+MC events = 8200370
+on iteration=0 finished step 2; time elapsed=5245.958555221558
+done with the 0iteration, time elapsed=5304.5422649383545
+on iteration=1 processing data for step 1, time elapsed=5304.54229426384
+on iteration=1 done processing data for step 1, time elapsed=5311.943531036377
+data events = 128636
+MC events = 8200874
+on step 1, time elapsed=5312.169432878494
+done with step 1, time elapsed=6678.976086616516
+time for step 2, time elapsed=6739.733068227768
+on iteration=1 done processing data for step 2, time elapsed=6845.33019900322
+MC events = 128636
+MC events = 8200874
+on iteration=1 finished step 2; time elapsed=7967.117943286896
+done with the 1iteration, time elapsed=8024.084136009216
+on iteration=2 processing data for step 1, time elapsed=8024.0841500759125
+on iteration=2 done processing data for step 1, time elapsed=8033.035099029541
+data events = 129099
+MC events = 8200411
+on step 1, time elapsed=8033.268016576767
+done with step 1, time elapsed=9584.663603544235
+time for step 2, time elapsed=9644.338248968124
+on iteration=2 done processing data for step 2, time elapsed=9755.121497154236
+MC events = 129099
+MC events = 8200411
+on iteration=2 finished step 2; time elapsed=10701.926757335663
+done with the 2iteration, time elapsed=10756.6506254673
+on iteration=3 processing data for step 1, time elapsed=10756.650643348694
+on iteration=3 done processing data for step 1, time elapsed=10765.220574617386
+data events = 129420
+MC events = 8200090
+on step 1, time elapsed=10765.465159416199
+done with step 1, time elapsed=11572.702274084091
+time for step 2, time elapsed=11686.14434504509
+on iteration=3 done processing data for step 2, time elapsed=11790.306416749954
+MC events = 129420
+MC events = 8200090
+on iteration=3 finished step 2; time elapsed=12690.270738363266
+done with the 3iteration, time elapsed=12750.169976711273
+on iteration=4 processing data for step 1, time elapsed=12750.16998887062
+on iteration=4 done processing data for step 1, time elapsed=12760.687682390213
+data events = 129165
+MC events = 8200345
+on step 1, time elapsed=12760.917078256607
+done with step 1, time elapsed=13298.478583097458
+time for step 2, time elapsed=13354.984509468079
+on iteration=4 done processing data for step 2, time elapsed=13457.693828344345
+MC events = 129165
+MC events = 8200345
+on iteration=4 finished step 2; time elapsed=13894.656157493591
+done with the 4iteration, time elapsed=13952.237469434738
