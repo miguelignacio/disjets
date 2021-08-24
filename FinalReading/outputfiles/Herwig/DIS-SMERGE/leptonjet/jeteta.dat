@@ -1,0 +1,20 @@
+# BEGIN PLOT
+LegendOnly=//Users/bpnachman/Documents/LBNL/H1/Herwig2/DIS-SMERGE.yoda/leptonjet/jeteta
+DrawOnly=//Users/bpnachman/Documents/LBNL/H1/Herwig2/DIS-SMERGE.yoda/leptonjet/jeteta
+Legend=1
+LogY=1
+# END PLOT
+
+# BEGIN HISTO1D //Users/bpnachman/Documents/LBNL/H1/Herwig2/DIS-SMERGE.yoda/leptonjet/jeteta
+LineColor=red
+LineStyle=solid
+Path=//Users/bpnachman/Documents/LBNL/H1/Herwig2/DIS-SMERGE.yoda/leptonjet/jeteta
+Title=DIS-SMERGE
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.000000e+00	-3.000000e-01	8.630429e+04	3.511294e+02	3.511294e+02
+-3.000000e-01	4.000000e-01	1.599214e+05	4.779740e+02	4.779740e+02
+4.000000e-01	1.100000e+00	9.389286e+04	3.662412e+02	3.662412e+02
+1.100000e+00	1.800000e+00	3.555286e+04	2.253659e+02	2.253659e+02
+1.800000e+00	2.500000e+00	1.708143e+04	1.562115e+02	1.562115e+02
+# END HISTO1D
+

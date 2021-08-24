@@ -1,0 +1,75 @@
+independent_variables:
+- header: {name: jet PT, units: GEV}
+  values:
+  - {low: 10.000, high: 14.678}
+  - {low: 14.678, high: 21.544}
+  - {low: 21.544, high: 31.623}
+  - {low: 31.623, high: 46.416}
+  - {low: 46.416, high: 68.129}
+  - {low: 68.129, high: 100.000}
+dependent_variables:
+- header: {name: 1/SIG(fiducial) * D(SIG(fiducial))/DPT, units: GEV**-1}
+  qualifiers:
+  - {name: RE, value: e P --> e J}
+  - {name: SQRT(S), units: GEV, value: 318}
+  values:
+  - value: 0.1147
+    errors:
+    - {symerror: 0.0004, label: stat}
+    - {symerror: 0.0000, label: syst QED}
+    - {symerror: 0.0007, label: syst HFS(jet)}
+    - {symerror: 0.0001, label: syst HFS(other)}
+    - {symerror: 0.0002, label: syst HFS(angle)}
+    - {symerror: 0.0009, label: syst lepton(energy)}
+    - {symerror: 0.0001, label: syst lepton(angle)}
+    - {symerror: 0.0014, label: syst model}
+  - value: 0.0439
+    errors:
+    - {symerror: 0.0003, label: stat}
+    - {symerror: 0.0001, label: syst QED}
+    - {symerror: 0.0002, label: syst HFS(jet)}
+    - {symerror: 0.0001, label: syst HFS(other)}
+    - {symerror: 0.0001, label: syst HFS(angle)}
+    - {symerror: 0.0007, label: syst lepton(energy)}
+    - {symerror: 0.0000, label: syst lepton(angle)}
+    - {symerror: 0.0007, label: syst model}
+  - value: 0.0112
+    errors:
+    - {symerror: 0.0001, label: stat}
+    - {symerror: 0.0001, label: syst QED}
+    - {symerror: 0.0001, label: syst HFS(jet)}
+    - {symerror: 0.0000, label: syst HFS(other)}
+    - {symerror: 0.0000, label: syst HFS(angle)}
+    - {symerror: 0.0001, label: syst lepton(energy)}
+    - {symerror: 0.0000, label: syst lepton(angle)}
+    - {symerror: 0.0001, label: syst model}
+  - value: 0.00245
+    errors:
+    - {symerror: 0.00004, label: stat}
+    - {symerror: 0.00000, label: syst QED}
+    - {symerror: 0.00004, label: syst HFS(jet)}
+    - {symerror: 0.00001, label: syst HFS(other)}
+    - {symerror: 0.00001, label: syst HFS(angle)}
+    - {symerror: 0.00001, label: syst lepton(energy)}
+    - {symerror: 0.00001, label: syst lepton(angle)}
+    - {symerror: 0.00003, label: syst model}
+  - value: 0.00048
+    errors:
+    - {symerror: 0.00001, label: stat}
+    - {symerror: 0.00001, label: syst QED}
+    - {symerror: 0.00001, label: syst HFS(jet)}
+    - {symerror: 0.00001, label: syst HFS(other)}
+    - {symerror: 0.00000, label: syst HFS(angle)}
+    - {symerror: 0.00001, label: syst lepton(energy)}
+    - {symerror: 0.00000, label: syst lepton(angle)}
+    - {symerror: 0.00001, label: syst model}
+  - value: 0.000064
+    errors:
+    - {symerror: 0.000004, label: stat}
+    - {symerror: 0.000001, label: syst QED}
+    - {symerror: 0.000003, label: syst HFS(jet)}
+    - {symerror: 0.000001, label: syst HFS(other)}
+    - {symerror: 0.000000, label: syst HFS(angle)}
+    - {symerror: 0.000005, label: syst lepton(energy)}
+    - {symerror: 0.000002, label: syst lepton(angle)}
+    - {symerror: 0.000002, label: syst model}

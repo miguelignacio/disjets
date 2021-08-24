@@ -1,0 +1,14 @@
+docker pull graemenail/herwig-eic
+
+alias yodamerge='docker run -i --rm -u `id -u $USER`:`id -g` -v $PWD:$PWD -w $PWD graemenail/herwig-eic yodamerge'
+alias rivet-build='docker run -i --rm -u `id -u $USER`:`id -g` -v $PWD:$PWD -w $PWD graemenail/herwig-eic rivet-build'
+alias rivet-mkhtml='docker run -i --rm -u `id -u $USER`:`id -g` -v $PWD:$PWD -w $PWD graemenail/herwig-eic rivet-mkhtml'
+alias Herwig='docker run -i --rm -u `id -u $USER`:`id -g` -v $PWD:$PWD -w $PWD graemenail/herwig-eic Herwig'
+
+rivet-build myrivet/leptonjet.cc
+export RIVET_ANALYSIS_PATH=$PWD
+rivet --list-analyses
+
+Herwig read X.in
+Herwig run -N <number> --seed=<seed> X.run
+rivet-mkhtml X.yoda

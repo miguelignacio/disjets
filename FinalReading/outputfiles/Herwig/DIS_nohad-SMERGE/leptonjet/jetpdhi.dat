@@ -1,0 +1,23 @@
+# BEGIN PLOT
+LegendOnly=//Users/bpnachman/Documents/LBNL/H1/Herwig2/DIS_nohad-SMERGE.yoda/leptonjet/jetpdhi
+DrawOnly=//Users/bpnachman/Documents/LBNL/H1/Herwig2/DIS_nohad-SMERGE.yoda/leptonjet/jetpdhi
+Legend=1
+LogY=1
+# END PLOT
+
+# BEGIN HISTO1D //Users/bpnachman/Documents/LBNL/H1/Herwig2/DIS_nohad-SMERGE.yoda/leptonjet/jetpdhi
+LineColor=red
+LineStyle=solid
+Path=//Users/bpnachman/Documents/LBNL/H1/Herwig2/DIS_nohad-SMERGE.yoda/leptonjet/jetpdhi
+ScaledBy=1.00000000000000000e+00
+Title=DIS_nohad-SMERGE
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	5.069951e-02	6.918607e+05	3.694090e+03	3.694090e+03
+5.069951e-02	1.023566e-01	5.620526e+05	3.298553e+03	3.298553e+03
+1.023566e-01	1.870804e-01	3.744638e+05	2.102337e+03	2.102337e+03
+1.870804e-01	3.260372e-01	1.925634e+05	1.177191e+03	1.177191e+03
+3.260372e-01	5.539427e-01	7.467130e+04	5.723998e+02	5.723998e+02
+5.539427e-01	9.277343e-01	2.519051e+04	2.595994e+02	2.595994e+02
+9.277343e-01	1.540796e+00	7.935580e+03	1.137725e+02	1.137725e+02
+# END HISTO1D
+
