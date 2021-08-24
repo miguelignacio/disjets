@@ -8,8 +8,8 @@ def get_Dataframe(path, name='Data', tag=None, verbose=False):
     #print (Files)
     df = None
     for i, f in enumerate(Files):
-        if( df is not None):
-            if(df.shape[0]>5000000): continue
+        #if( df is not None):
+        #    if(df.shape[0]>5000000): continue
         #if(i>10):continue
         if name not in f: continue
         filename = path+f
@@ -90,8 +90,8 @@ def applyCutsJets(df,isMC=False,verbose=False):
 
     temp['pass_reco'] = np.where(temp['jet_pt']>0, 1, 0)
     if (isMC):
-        temp['pass_truth'] = np.where(temp['genjet_pt']*temp['Q2']>0, 1, 0)
-        temp['pass_fiducial'] = np.where(temp['pass_truth']*(temp['Q2'] > 150)*
+        temp['pass_truth'] = np.where(temp['genjet_pt']*temp['gen_Q2']>0, 1, 0)
+        temp['pass_fiducial'] = np.where(temp['pass_truth']*(temp['gen_Q2'] > 150)*
                                          (temp['gen_y']>0.2)*(temp['gen_y']<0.7)*
                                          (temp['genjet_pt']>10)*
                                          (temp['genjet_eta']<2.5)*
