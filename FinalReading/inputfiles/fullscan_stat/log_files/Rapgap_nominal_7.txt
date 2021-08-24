@@ -1,0 +1,61 @@
+Running on MC sample Rapgap with setting nominal seed 7
+on iteration=0 processing data for step 1, time elapsed=0.7072544097900391
+on iteration=0 done processing data for step 1, time elapsed=7.821254730224609
+data events = 129261
+MC events = 8610260
+on step 1, time elapsed=8.04670763015747
+done with step 1, time elapsed=3731.9010853767395
+time for step 2, time elapsed=3789.2218792438507
+on iteration=0 done processing data for step 2, time elapsed=3861.2982165813446
+MC events = 129261
+MC events = 8610260
+on iteration=0 finished step 2; time elapsed=6693.934096813202
+done with the 0iteration, time elapsed=6754.320553779602
+on iteration=1 processing data for step 1, time elapsed=6754.320562124252
+on iteration=1 done processing data for step 1, time elapsed=6761.55034995079
+data events = 129297
+MC events = 8610224
+on step 1, time elapsed=6761.777951717377
+done with step 1, time elapsed=10168.851192474365
+time for step 2, time elapsed=10226.584158658981
+on iteration=1 done processing data for step 2, time elapsed=10297.890757322311
+MC events = 129297
+MC events = 8610224
+on iteration=1 finished step 2; time elapsed=12130.963008403778
+done with the 1iteration, time elapsed=12191.687525987625
+on iteration=2 processing data for step 1, time elapsed=12191.687552452087
+on iteration=2 done processing data for step 1, time elapsed=12199.511040687561
+data events = 129378
+MC events = 8610143
+on step 1, time elapsed=12199.75055718422
+done with step 1, time elapsed=13531.681587934494
+time for step 2, time elapsed=13589.396438837051
+on iteration=2 done processing data for step 2, time elapsed=13660.647043704987
+MC events = 129378
+MC events = 8610143
+on iteration=2 finished step 2; time elapsed=14520.83445262909
+done with the 2iteration, time elapsed=14580.963242530823
+on iteration=3 processing data for step 1, time elapsed=14580.96326804161
+on iteration=3 done processing data for step 1, time elapsed=14588.74487233162
+data events = 129273
+MC events = 8610248
+on step 1, time elapsed=14588.970813274384
+done with step 1, time elapsed=15388.39764380455
+time for step 2, time elapsed=15445.868164539337
+on iteration=3 done processing data for step 2, time elapsed=15517.518064498901
+MC events = 129273
+MC events = 8610248
+on iteration=3 finished step 2; time elapsed=16009.043094396591
+done with the 3iteration, time elapsed=16068.647646188736
+on iteration=4 processing data for step 1, time elapsed=16068.647672653198
+on iteration=4 done processing data for step 1, time elapsed=16076.591801643372
+data events = 129093
+MC events = 8610428
+on step 1, time elapsed=16076.819190263748
+done with step 1, time elapsed=16539.98068213463
+time for step 2, time elapsed=16597.07759642601
+on iteration=4 done processing data for step 2, time elapsed=16669.49437904358
+MC events = 129093
+MC events = 8610428
+on iteration=4 finished step 2; time elapsed=17037.612814426422
+done with the 4iteration, time elapsed=17098.873405456543
