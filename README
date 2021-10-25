@@ -1,6 +1,1 @@
-- Unfold_Main.ipynb is used to derive the nominal result and most of the systematic uncertainties (including the non-closure uncertainty).
-- SystematicUncertainties.ipynb processes the values from Unfold_Main.ipynb to make the uncertainty plots
-- StatUncert_Bootstrapping.ipynb is for the stat uncert. and processes the output of a standalone script run_many.py which calls strap.py
-- HadronizationCorrections.ipynb processes external outputs from Pythia and Herwig for the hadronization corrections
-
-All of the unfolded (unbinned) results can be found on squirrel at /data1/users/bpnachman/H1/results/May31_2021
+The final results are made with the FinalReading folder.  See th README in there for details.
